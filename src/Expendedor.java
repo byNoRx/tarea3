@@ -10,7 +10,7 @@ public class Expendedor {
     private final Deposito<Producto> depositoSnickers;
     private final Deposito<Producto> depositoSuper8;
     // Monedas para vuelto
-    private final Deposito<Moneda> depositoMonedas;
+    private final Deposito<Moneda> depositoMonedasVuelto;
     // Depósito especial para el producto comprado
     private Producto bandejaDeEntrega;
 
@@ -28,7 +28,7 @@ public class Expendedor {
         depositoSnickers = new Deposito<>();
         depositoSuper8 = new Deposito<>();
         // Deposito de Monedas
-        depositoMonedas = new Deposito<>();
+        depositoMonedasVuelto = new Deposito<>();
         // Bandeja de Entrega
         bandejaDeEntrega = null;
 
@@ -64,13 +64,13 @@ public class Expendedor {
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.COCA.getPrecio();
                 for (int i = 0; i < vuelto / 100; i++) {
-                    depositoMonedas.addObjeto(new Moneda100());
+                    depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
                 return;
             }
             else {
-                depositoMonedas.addObjeto(moneda);
+                depositoMonedasVuelto.addObjeto(moneda);
                 throw new NoHayProductoException("No hay coca-cola.");
             }
         }
@@ -79,13 +79,13 @@ public class Expendedor {
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.FANTA.getPrecio();
                 for (int i = 0; i < vuelto / 100; i++) {
-                    depositoMonedas.addObjeto(new Moneda100());
+                    depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
                 return;
             }
             else {
-                depositoMonedas.addObjeto(moneda);
+                depositoMonedasVuelto.addObjeto(moneda);
                 throw new NoHayProductoException("No hay fanta.");
             }
         }
@@ -94,13 +94,13 @@ public class Expendedor {
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.SPRITE.getPrecio();
                 for (int i = 0; i < vuelto / 100; i++) {
-                    depositoMonedas.addObjeto(new Moneda100());
+                    depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
                 return;
             }
             else {
-                depositoMonedas.addObjeto(moneda);
+                depositoMonedasVuelto.addObjeto(moneda);
                 throw new NoHayProductoException("No hay sprite.");
             }
         }
@@ -109,13 +109,13 @@ public class Expendedor {
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.SNICKERS.getPrecio();
                 for (int i = 0; i < vuelto / 100; i++) {
-                    depositoMonedas.addObjeto(new Moneda100());
+                    depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
                 return;
             }
             else {
-                depositoMonedas.addObjeto(moneda);
+                depositoMonedasVuelto.addObjeto(moneda);
                 throw new NoHayProductoException("No hay snickers.");
             }
         }
@@ -124,22 +124,22 @@ public class Expendedor {
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.SUPER8.getPrecio();
                 for (int i = 0; i < vuelto / 100; i++) {
-                    depositoMonedas.addObjeto(new Moneda100());
+                    depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
                 return;
             }
             else {
-                depositoMonedas.addObjeto(moneda);
+                depositoMonedasVuelto.addObjeto(moneda);
                 throw new NoHayProductoException("No hay super 8.");
             }
         }
         else if (cual != ProductoTipo.COCA.getNumero() && cual != ProductoTipo.FANTA.getNumero() && cual != ProductoTipo.SPRITE.getNumero() && cual != ProductoTipo.SNICKERS.getNumero() && cual != ProductoTipo.SUPER8.getNumero()) {
-            depositoMonedas.addObjeto(moneda);
+            depositoMonedasVuelto.addObjeto(moneda);
             throw new NoHayProductoException("El número de depósito es erróneo.");
         }
         else {   
-            depositoMonedas.addObjeto(moneda);
+            depositoMonedasVuelto.addObjeto(moneda);
             throw new PagoInsuficienteException("No alcanza para comprar el producto.");
         }
     }
@@ -150,7 +150,7 @@ public class Expendedor {
      * @return el vuelto que se ha obtenido al hacer la compra
      */
     public Moneda getVuelto () {
-        return depositoMonedas.getObjeto();
+        return depositoMonedasVuelto.getObjeto();
     }
 
     public Producto getProducto() {
