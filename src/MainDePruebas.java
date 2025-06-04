@@ -257,10 +257,11 @@ public class MainDePruebas {
         producto = ProductoTipo.COCA;
         System.out.println("Precio del producto: $" + producto.getPrecio());
         try {
-            System.out.println("Comprar " + expendedor.comprarProducto(moneda, producto.getNumero()).getSabor() + " con $" + moneda.getValor());
-            System.out.println("Comprar " + expendedor.comprarProducto(moneda, producto.getNumero()).getSabor() + " con $" + moneda.getValor());
-            System.out.println("Comprar " + expendedor.comprarProducto(moneda, producto.getNumero()).getSabor() + " con $" + moneda.getValor());
-            System.out.println("Comprar " + expendedor.comprarProducto(moneda, producto.getNumero()).getSabor() + " con $" + moneda.getValor());
+            expendedor.comprarProducto(moneda, producto.getNumero());
+            System.out.println("Comprar " + expendedor.getProducto().getSabor() + " con $" + moneda.getValor());
+            System.out.println("Comprar " + expendedor.getProducto().getSabor() + " con $" + moneda.getValor());
+            System.out.println("Comprar " + expendedor.getProducto().getSabor() + " con $" + moneda.getValor());
+            System.out.println("Comprar " + expendedor.getProducto().getSabor() + " con $" + moneda.getValor());
         } catch (PagoIncorrectoException e) {
             System.out.println(e.getMessage());
         } catch (PagoInsuficienteException e) {
