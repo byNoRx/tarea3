@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Main {
+public class MainDePruebas {
     public static void main(String[] args) {
 
         // Test sort de monedas
