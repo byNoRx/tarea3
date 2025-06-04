@@ -47,7 +47,7 @@ public class Expendedor {
      * @throws PagoInsuficienteException si el pago es insuficiente
      * @throws NoHayProductoException si no hay productos disponibles
      */
-    public Producto comprarProducto(Moneda moneda, int cual) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+    public void comprarProducto(Moneda moneda, int cual) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         if (moneda == null) {
             throw new PagoIncorrectoException("El pago es incorrecto.");
         }
@@ -62,7 +62,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
-                return producto;
+                return;
             }
             else {
                 depositoMonedas.addObjeto(moneda);
@@ -76,7 +76,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
-                return producto;
+                return;
             }
             else {
                 depositoMonedas.addObjeto(moneda);
@@ -90,7 +90,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
-                return producto;
+                return;
             }
             else {
                 depositoMonedas.addObjeto(moneda);
@@ -104,7 +104,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
-                return producto;
+                return;
             }
             else {
                 depositoMonedas.addObjeto(moneda);
@@ -118,7 +118,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
-                return producto;
+                return;
             }
             else {
                 depositoMonedas.addObjeto(moneda);
