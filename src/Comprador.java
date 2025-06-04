@@ -16,7 +16,8 @@ public class Comprador {
      * @throws PagoIncorrectoException si el pago es incorrecto
      */
     public Comprador(Moneda moneda, int cualBebida, Expendedor expendedor) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        Producto bebida_comprada = expendedor.comprarProducto(moneda, cualBebida);
+        expendedor.comprarProducto(moneda, cualBebida);
+        Producto bebida_comprada = expendedor.getProducto();
         if (bebida_comprada != null) {
             this.sonido = bebida_comprada.getSabor();
         } else {
