@@ -11,6 +11,8 @@ public class Expendedor {
     private final Deposito<Producto> depositoSuper8;
     // Monedas para vuelto
     private final Deposito<Moneda> depositoMonedas;
+    // Depósito especial para el producto comprado
+    private Producto bandejaDeEntrega;
 
     /**
      * Constructor de la clase Expendedor.
@@ -27,6 +29,8 @@ public class Expendedor {
         depositoSuper8 = new Deposito<>();
         // Deposito de Monedas
         depositoMonedas = new Deposito<>();
+        // Bandeja de Entrega
+        bandejaDeEntrega = null;
 
         for (int i = 0; i < numProductos; i++) {
             depositoCoca.addObjeto(new CocaCola(1000+i));
@@ -62,6 +66,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
+                bandejaDeEntrega = producto;
                 return;
             }
             else {
@@ -76,6 +81,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
+                bandejaDeEntrega = producto;
                 return;
             }
             else {
@@ -90,6 +96,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
+                bandejaDeEntrega = producto;
                 return;
             }
             else {
@@ -104,6 +111,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
+                bandejaDeEntrega = producto;
                 return;
             }
             else {
@@ -118,6 +126,7 @@ public class Expendedor {
                 for (int i = 0; i < vuelto / 100; i++) {
                     depositoMonedas.addObjeto(new Moneda100());
                 }
+                bandejaDeEntrega = producto;
                 return;
             }
             else {
@@ -142,5 +151,9 @@ public class Expendedor {
      */
     public Moneda getVuelto () {
         return depositoMonedas.getObjeto();
+    }
+
+    public Producto getProducto() {
+        return bandejaDeEntrega;
     }
 }
