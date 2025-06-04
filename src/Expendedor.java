@@ -11,6 +11,7 @@ public class Expendedor {
     private final Deposito<Producto> depositoSuper8;
     // Monedas para vuelto
     private final Deposito<Moneda> depositoMonedasVuelto;
+    private final Deposito<Moneda> depositoMonedas;
     // Depósito especial para el producto comprado
     private Producto bandejaDeEntrega;
 
@@ -29,6 +30,7 @@ public class Expendedor {
         depositoSuper8 = new Deposito<>();
         // Deposito de Monedas
         depositoMonedasVuelto = new Deposito<>();
+        depositoMonedas = new Deposito<>();
         // Bandeja de Entrega
         bandejaDeEntrega = null;
 
@@ -67,6 +69,7 @@ public class Expendedor {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
+                depositoMonedas.addObjeto(moneda);
                 return;
             }
             else {
@@ -82,6 +85,7 @@ public class Expendedor {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
+                depositoMonedas.addObjeto(moneda);
                 return;
             }
             else {
@@ -97,6 +101,7 @@ public class Expendedor {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
+                depositoMonedas.addObjeto(moneda);
                 return;
             }
             else {
@@ -112,6 +117,7 @@ public class Expendedor {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
+                depositoMonedas.addObjeto(moneda);
                 return;
             }
             else {
@@ -127,6 +133,7 @@ public class Expendedor {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
                 }
                 bandejaDeEntrega = producto;
+                depositoMonedas.addObjeto(moneda);
                 return;
             }
             else {
