@@ -65,8 +65,21 @@ public class Expendedor {
             producto = depositoCoca.getObjeto();
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.COCA.getPrecio();
-                for (int i = 0; i < vuelto / 100; i++) {
+                while (vuelto >= 1500 && vuelto != 0) {   
+                    depositoMonedasVuelto.addObjeto(new Moneda1500());
+                    vuelto -= 1500;
+                }
+                while (vuelto >= 1000 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda1000());
+                    vuelto -= 1000;
+                }
+                while (vuelto >= 500 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda500());
+                    vuelto -= 500;
+                }
+                while (vuelto >= 100 && vuelto != 0) {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
+                    vuelto -= 100;
                 }
                 bandejaDeEntrega = producto;
                 depositoMonedas.addObjeto(moneda);
@@ -81,8 +94,21 @@ public class Expendedor {
             producto = depositoFanta.getObjeto();
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.FANTA.getPrecio();
-                for (int i = 0; i < vuelto / 100; i++) {
+                while (vuelto >= 1500 && vuelto != 0) {   
+                    depositoMonedasVuelto.addObjeto(new Moneda1500());
+                    vuelto -= 1500;
+                }
+                while (vuelto >= 1000 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda1000());
+                    vuelto -= 1000;
+                }
+                while (vuelto >= 500 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda500());
+                    vuelto -= 500;
+                }
+                while (vuelto >= 100 && vuelto != 0) {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
+                    vuelto -= 100;
                 }
                 bandejaDeEntrega = producto;
                 depositoMonedas.addObjeto(moneda);
@@ -97,8 +123,21 @@ public class Expendedor {
             producto = depositoSprite.getObjeto();
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.SPRITE.getPrecio();
-                for (int i = 0; i < vuelto / 100; i++) {
+                while (vuelto >= 1500 && vuelto != 0) {   
+                    depositoMonedasVuelto.addObjeto(new Moneda1500());
+                    vuelto -= 1500;
+                }
+                while (vuelto >= 1000 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda1000());
+                    vuelto -= 1000;
+                }
+                while (vuelto >= 500 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda500());
+                    vuelto -= 500;
+                }
+                while (vuelto >= 100 && vuelto != 0) {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
+                    vuelto -= 100;
                 }
                 bandejaDeEntrega = producto;
                 depositoMonedas.addObjeto(moneda);
@@ -113,8 +152,21 @@ public class Expendedor {
             producto = depositoSnickers.getObjeto();
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.SNICKERS.getPrecio();
-                for (int i = 0; i < vuelto / 100; i++) {
+                while (vuelto >= 1500 && vuelto != 0) {   
+                    depositoMonedasVuelto.addObjeto(new Moneda1500());
+                    vuelto -= 1500;
+                }
+                while (vuelto >= 1000 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda1000());
+                    vuelto -= 1000;
+                }
+                while (vuelto >= 500 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda500());
+                    vuelto -= 500;
+                }
+                while (vuelto >= 100 && vuelto != 0) {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
+                    vuelto -= 100;
                 }
                 bandejaDeEntrega = producto;
                 depositoMonedas.addObjeto(moneda);
@@ -129,8 +181,21 @@ public class Expendedor {
             producto = depositoSuper8.getObjeto();
             if (producto != null) {
                 int vuelto = moneda.getValor() - ProductoTipo.SUPER8.getPrecio();
-                for (int i = 0; i < vuelto / 100; i++) {
+                while (vuelto >= 1500 && vuelto != 0) {   
+                    depositoMonedasVuelto.addObjeto(new Moneda1500());
+                    vuelto -= 1500;
+                }
+                while (vuelto >= 1000 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda1000());
+                    vuelto -= 1000;
+                }
+                while (vuelto >= 500 && vuelto != 0) {
+                    depositoMonedasVuelto.addObjeto(new Moneda500());
+                    vuelto -= 500;
+                }
+                while (vuelto >= 100 && vuelto != 0) {
                     depositoMonedasVuelto.addObjeto(new Moneda100());
+                    vuelto -= 100;
                 }
                 bandejaDeEntrega = producto;
                 depositoMonedas.addObjeto(moneda);
