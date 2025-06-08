@@ -11,7 +11,6 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         this.setBackground(Color.white);
         //com = new PanelComprador(0,0,new Comprador());
         exp = new PanelExpendedor(100, 100, new Expendedor(5));
-        Menu menu = new Menu();
 
 
     }
