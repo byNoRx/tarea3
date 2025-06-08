@@ -8,12 +8,12 @@ public class Menu extends JPanel implements ActionListener {
     private JButton boton1, boton2, boton3, boton4, boton5, boton6,boton7,boton8,boton9,boton10,boton11;
 
     public Menu() {
-        setLayout(new BorderLayout());
+
 
 
         // Crear los paneles
 
-        BigPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        BigPanel = new JPanel();
         panel1 = new JPanel(new GridLayout(0, 1, 10, 10)); // 3 filas, 1 columna
         panel2 = new JPanel(new GridLayout(0, 1, 10, 10));
         panel3 = new JPanel(new GridLayout(0, 1, 10, 10));
