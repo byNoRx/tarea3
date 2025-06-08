@@ -1,6 +1,7 @@
+import javax.swing.*;
 import java.awt.*;
 
-public class PanelComprador {
+public class PanelComprador extends JPanel {
     private int posX;
     private int posY;
     private Comprador comprador;
@@ -20,6 +21,7 @@ public class PanelComprador {
 
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         g.setColor(Color.black);
         g.fillRect(posX, posY, ObjetoSize.COM.getWidth(), ObjetoSize.COM.getHeight());
     }
