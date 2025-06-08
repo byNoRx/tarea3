@@ -5,10 +5,14 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelComprador com;
     private PanelExpendedor exp;
 
+
+
     public PanelPrincipal () {
         this.setBackground(Color.white);
         //com = new PanelComprador(0,0,new Comprador());
         exp = new PanelExpendedor(100, 100, new Expendedor(5));
+
+
     }
 
     @Override
@@ -17,5 +21,6 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
                                                 // El de la super clase solo pinta el fondo (background)
         //com.paintComponent(g);                  // Llama al metodo paintComponent definido en el PanelComprador
         exp.paintComponent(g);                  // Llama al metodo paintComponent definido en el PanelExpendedor
+
     }
 }
