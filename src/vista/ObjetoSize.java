@@ -1,17 +1,17 @@
 public enum ObjetoSize {
-    EXP(256, 512),
+    EXP(300, 512),
     //COM(50, 175),
-    DEP(64, 64),
-    OBJ(4, 4);
+    DEP(128, 64),
+    OBJ(8, 8);
 
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
 
     /**
      * Constructor
      * 
-     * @param width
-     * @param height
+     * @param width ancho
+     * @param height alto
      */
     ObjetoSize(int width, int height) {
         this.width = width;
