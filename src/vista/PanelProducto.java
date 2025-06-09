@@ -12,13 +12,13 @@ public class PanelProducto extends JPanel {
         //.producto = producto;
     }
 
-    /*@Override
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         g.setColor(Color.green);
-        g.fillRect(posX, posY, ObjetoSize.PRO.getWidth(), ObjetoSize.PRO.getHeight());
-    }*/
+        g.fillRect(posX, posY, ObjetoSize.OBJ.getWidth(), ObjetoSize.OBJ.getHeight());
+    }
 }
 
 
