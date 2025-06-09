@@ -17,12 +17,23 @@ public class PanelMoneda extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.yellow);
-        g.fillOval(posX, posY, ObjetoSize.OBJ.getWidth(), ObjetoSize.OBJ.getHeight());
+        if (moneda != null) {
+            return;
+        }
 
-        /*if (moneda.getValor() == 100) {
+        if (moneda.getValor() == 100) {
             g.setColor(Color.lightGray);
-        }*/
+        }
+        else if (moneda.getValor() == 500) {
+            g.setColor(Color.yellow);
+        }
+        else if (moneda.getValor() == 1000) {
+            g.setColor(Color.blue);
+        }
+        else if (moneda.getValor() == 1500) {
+            g.setColor(Color.magenta);
+        }
 
+        g.fillOval(posX, posY, ObjetoSize.OBJ.getWidth(), ObjetoSize.OBJ.getHeight());
     }
 }
