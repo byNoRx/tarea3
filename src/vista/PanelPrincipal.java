@@ -1,16 +1,42 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
-    //private PanelComprador com;
+public class PanelPrincipal extends JPanel {    // Se ve en el centro de la ventana
+    private PanelComprador com;
     private PanelExpendedor exp;
+
+    private Menu menu;
 
 
 
     public PanelPrincipal () {
-        this.setBackground(Color.white);
-        //com = new PanelComprador(0,0,new Comprador());
+
+        setLayout(new BorderLayout());
+        setBackground(Color.white);
+
+        // Crear subpaneles
+        JPanel left = new JPanel();
+        left.setLayout(new BorderLayout());
+        //left.setPreferredSize(new Dimension(ObjetoSize.EXP.getHeight(), ObjetoSize.EXP.getHeight()));
+        add(left, BorderLayout.CENTER);
+        left.setBackground(Color.WHITE);
+
+        JPanel right = new JPanel();
+        right.setLayout(new BorderLayout());
+        right.setPreferredSize(new Dimension(ObjetoSize.EXP.getWidth(), ObjetoSize.EXP.getHeight()));
+        add(right, BorderLayout.EAST);
+        right.setBackground(Color.lightGray);
+
+        // Agregar subpaneles al panel principal
+        add(left, BorderLayout.CENTER);
+        add(right, BorderLayout.EAST);
+
         exp = new PanelExpendedor(0, 0, new Expendedor(5));
+        right.add(exp, BorderLayout.CENTER);
+
+        menu = new Menu();
+        add(menu, BorderLayout.WEST);
+        //menu.setPreferredSize(new Dimension(ObjetoSize.EXP.getHeight(), ObjetoSize.EXP.getHeight()));
     }
 
     @Override
@@ -19,6 +45,5 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
                                                 // El de la super clase solo pinta el fondo (background)
         //com.paintComponent(g);                  // Llama al metodo paintComponent definido en el PanelComprador
         exp.paintComponent(g);                  // Llama al metodo paintComponent definido en el PanelExpendedor
-
     }
 }
