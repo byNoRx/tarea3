@@ -15,6 +15,7 @@ public class Ventana extends JFrame {
     private void personalizar() {
         setTitle("Expendedor y Comprador");
         setLayout(new BorderLayout());
+        setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
