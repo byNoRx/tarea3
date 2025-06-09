@@ -21,14 +21,10 @@ public class PanelExpendedor extends JPanel {
 
     private PanelProducto bandejaDeEntrega;
 
-    /**
-     * Constructor
-     *
-     * @param posX
-     * @param posY
-     * @param expendedor
-     */
     public PanelExpendedor(int posX, int posY, Expendedor expendedor) {
+        this.posX = posX;
+        this.posY = posY;
+
         this.depositoCoca = new PanelDeposito<>(posX + 1, posY + 1, expendedor.getDepositoCoca());
         this.depositoFanta = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() + 2, expendedor.getDepositoFanta());
         this.depositoSprite = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() * 2 + 3, expendedor.getDepositoSprite());
@@ -39,7 +35,7 @@ public class PanelExpendedor extends JPanel {
         this.depositoMonedas = new PanelDeposito<>(posX + 1, posY + ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() * 2 - 2, expendedor.getDepositoMonedas());
         this.depositoMonedasVuelto = new PanelDeposito<>(posX + ObjetoSize.EXP.getWidth() - ObjetoSize.DEP.getWidth() - 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight()) / 2, expendedor.getDepositoMonedasVuelto());
 
-        //this.bandejaDeEntrega = new PanelProducto(posX + 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1), expendedor.getDepositoMonedasVuelto());
+        this.bandejaDeEntrega = new PanelProducto(posX + 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1), expendedor.getProducto());
     }
 
     @Override
@@ -59,6 +55,6 @@ public class PanelExpendedor extends JPanel {
         depositoMonedas.paintComponent(g);
         depositoMonedasVuelto.paintComponent(g);
 
-        //bandejaDeEntrega.paintComponent(g);
+        bandejaDeEntrega.paintComponent(g);
     }
 }
