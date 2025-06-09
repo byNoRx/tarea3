@@ -22,8 +22,8 @@ public class PanelExpendedor extends JPanel {
     private PanelDeposito<Moneda> depositoMonedasVuelto;
     private PanelDeposito<Moneda> depositoMonedas;
 
-    private PanelProducto bandejaDeEntrega;
-    private PanelDeposito<Producto> depositoDeEntrega; // Sólo visual
+    private PanelProducto productoDeEntrega;
+    private PanelDeposito<Producto> bandejaDeEntrega; // Sólo visual
 
     public PanelExpendedor(int posX, int posY, Expendedor expendedor) {
         this.posX = posX;
@@ -41,10 +41,12 @@ public class PanelExpendedor extends JPanel {
         this.depositoMonedasVuelto = new PanelDeposito<>(posX + 1, posY + ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() * 2 - 2, expendedor.getDepositoMonedas());
         this.depositoMonedas = new PanelDeposito<>(posX + ObjetoSize.EXP.getWidth() - ObjetoSize.DEP.getWidth() - 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight()) / 2, expendedor.getDepositoMonedasVuelto());
 
-        this.bandejaDeEntrega = new PanelProducto(posX + 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1), expendedor.getProducto());
+        // Sólo visual
+        Deposito<Producto> d = new Deposito<>(); // Depósito vacío
+        this.bandejaDeEntrega = new PanelDeposito<>(posX + 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1), d); // panel de depósito vacío
 
-        Deposito<Producto> dep = new Deposito<>();
-        this.depositoDeEntrega = new PanelDeposito<>(posX + 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1), dep);
+        this.productoDeEntrega = new PanelProducto(posX + 1 + ObjetoSize.OBJ.getWidth(), posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1 + ObjetoSize.OBJ.getHeight()), expendedor.getProducto());
+
     }
 
     @Override
@@ -64,6 +66,7 @@ public class PanelExpendedor extends JPanel {
         depositoMonedas.paintComponent(g);
         depositoMonedasVuelto.paintComponent(g);
 
-        bandejaDeEntrega.paintComponent(g);
+        bandejaDeEntrega.paintComponent(g); // Sólo para hacer parecer que hay un depósito para el producto que se entrega
+        productoDeEntrega.paintComponent(g);
     }
 }
