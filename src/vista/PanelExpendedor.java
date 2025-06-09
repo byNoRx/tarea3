@@ -6,9 +6,6 @@ public class PanelExpendedor extends JPanel {
     private int posX;
     private int posY;
 
-    // Expendedor
-    private Expendedor expendedor;
-
     // Depositos de bebidas
     private PanelDeposito<Producto> depositoCoca;
     private PanelDeposito<Producto> depositoFanta;
@@ -28,8 +25,6 @@ public class PanelExpendedor extends JPanel {
     public PanelExpendedor(int posX, int posY, Expendedor expendedor) {
         this.posX = posX;
         this.posY = posY;
-
-        this.expendedor = expendedor;
 
         this.depositoCoca = new PanelDeposito<>(posX + 1, posY + 1, expendedor.getDepositoCoca());
         this.depositoFanta = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() + 2, expendedor.getDepositoFanta());
