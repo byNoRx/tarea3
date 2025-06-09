@@ -22,7 +22,7 @@ public class PanelComprador extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.black);
-        g.fillRect(posX, posY, ObjetoSize.COM.getWidth(), ObjetoSize.COM.getHeight());
+        //g.setColor(Color.black);
+        //g.fillRect(posX, posY, ObjetoSize.COM.getWidth(), ObjetoSize.COM.getHeight());
     }
 }
