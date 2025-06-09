@@ -1,6 +1,6 @@
 public enum ObjetoSize {
     EXP(300, 512),
-    //COM(50, 175),
+    COM(50, 175),
     DEP(128, 64),
     OBJ(8, 8);
 
