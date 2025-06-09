@@ -2,11 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelExpendedor extends JPanel {
-
+    // Posiciones
     private int posX;
     private int posY;
-    private Expendedor expendedor;
-    private JPanel panel1;
+
+    // Depositos de bebidas
+    private PanelDeposito<Producto> depositoCoca;
+    private PanelDeposito<Producto> depositoFanta;
+    private PanelDeposito<Producto> depositoSprite;
+
+    // Depositos de dulces
+    private PanelDeposito<Producto> depositoSnickers;
+    private PanelDeposito<Producto> depositoSuper8;
+
+    // Deposito de monedas
+    private PanelDeposito<Moneda> depositoMonedasVuelto;
+    private PanelDeposito<Moneda> depositoMonedas;
+
+    private PanelProducto bandejaDeEntrega;
 
     /**
      * Constructor
@@ -16,57 +29,36 @@ public class PanelExpendedor extends JPanel {
      * @param expendedor
      */
     public PanelExpendedor(int posX, int posY, Expendedor expendedor) {
-        this.posX = posX;
-        this.posY = posY;
-        this.expendedor = expendedor;
+        this.depositoCoca = new PanelDeposito<>(posX + 1, posY + 1, expendedor.getDepositoCoca());
+        this.depositoFanta = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() + 2, expendedor.getDepositoFanta());
+        this.depositoSprite = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() * 2 + 3, expendedor.getDepositoSprite());
 
+        this.depositoSnickers = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() * 3 + 4, expendedor.getDepositoSnickers());
+        this.depositoSuper8 = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() * 4 + 5, expendedor.getDepositoSuper8());
 
+        this.depositoMonedas = new PanelDeposito<>(posX + 1, posY + ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() * 2 - 2, expendedor.getDepositoMonedas());
+        this.depositoMonedasVuelto = new PanelDeposito<>(posX + ObjetoSize.EXP.getWidth() - ObjetoSize.DEP.getWidth() - 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight()) / 2, expendedor.getDepositoMonedasVuelto());
 
+        //this.bandejaDeEntrega = new PanelProducto(posX + 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1), expendedor.getDepositoMonedasVuelto());
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        super.paintComponent(g);
         g.setColor(Color.black);
         g.fillRect(posX, posY, ObjetoSize.EXP.getWidth(), ObjetoSize.EXP.getHeight());
 
+        depositoCoca.paintComponent(g);
+        depositoFanta.paintComponent(g);
+        depositoSprite.paintComponent(g);
 
+        depositoSnickers.paintComponent(g);
+        depositoSuper8.paintComponent(g);
 
-        // Dibujar la maquina expendedora
-        g.setColor(Color.GRAY);
-        g.fillRect(50, 50, 300, 500);
-        g.drawString("Maquina Expendedora", 130, 40);
+        depositoMonedas.paintComponent(g);
+        depositoMonedasVuelto.paintComponent(g);
 
-
-
-        // Dibujar la ventana de productos
-        g.setColor(Color.BLACK);
-        g.fillRect(100, 100, 200, 250);
-
-        g.setColor(Color.BLUE);
-        g.fillRect(100,360,150,50);
-
-
-        // Dibujar ranura de pago
-        g.setColor(Color.DARK_GRAY);
-        g.fillRect(300, 350, 50, 20);
-
-        // Dibujar salida de productos
-        g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(150, 500, 100, 50);
-
-        // Dibujar monedero
-        g.setColor(Color.ORANGE);
-        g.fillRect(320, 600, 50, 50); // Representa el cuerpo del monedero
-        g.setColor(Color.YELLOW);
-        g.fillOval(335, 600, 20, 20); // Representa una moneda dentro
-
-        g.setColor(Color.black);
-        g.drawString("Monedero", 325, 580);
-
-
-
+        //bandejaDeEntrega.paintComponent(g);
     }
 }
