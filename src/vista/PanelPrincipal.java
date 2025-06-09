@@ -55,42 +55,58 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         // Crear los botones
         boton1 = new JButton("ELEGIR PRODUCTO");
         boton1.addActionListener(this);
+        boton1.setBackground(Color.cyan);
 
         boton2 = new JButton("ELEGIR MONEDA");
         boton2.addActionListener(this);
+        boton2.setBackground(Color.yellow);
 
         boton15 = new JButton("COMPRAR PRODUCTO");
         boton15.addActionListener(this);
+        boton15.setBackground(Color.green);
 
         boton3 = new JButton("RECUPERAR VUELTO");
         boton3.addActionListener(this);
 
         boton4 = new JButton(ProductoTipo.SUPER8.toString() + " $" + ProductoTipo.SUPER8.getPrecio());
         boton4.addActionListener(this);
+        boton4.setBackground(Color.black);
+        boton4.setForeground(Color.white);
 
         boton5 = new JButton(ProductoTipo.SNICKERS.toString() + " $" + ProductoTipo.SNICKERS.getPrecio());
         boton5.addActionListener(this);
+        boton5.setBackground(Color.yellow);
 
         boton12 = new JButton(ProductoTipo.COCA.toString() + " $" + ProductoTipo.COCA.getPrecio());
         boton12.addActionListener(this);
+        boton12.setBackground(Color.red);
+        boton12.setForeground(Color.white);
 
         boton13 = new JButton(ProductoTipo.SPRITE.toString() + " $" + ProductoTipo.SPRITE.getPrecio());
         boton13.addActionListener(this);
+        boton13.setBackground(Color.green);
 
         boton14 = new JButton(ProductoTipo.FANTA.toString() + " $" + ProductoTipo.FANTA.getPrecio());
         boton14.addActionListener(this);
+        boton14.setBackground(Color.orange);
 
         boton6 = new JButton("VOLVER");
         boton6.addActionListener(this);
 
         boton7 = new JButton("$100");
         boton7.addActionListener(this);
+        boton7.setBackground(Color.lightGray);
         boton8 = new JButton("$500");
         boton8.addActionListener(this);
+        boton8.setBackground(Color.yellow);
         boton9 = new JButton("$1000");
         boton9.addActionListener(this);
+        boton9.setBackground(Color.blue);
+        boton9.setForeground(Color.white);
         boton10 = new JButton("$1500");
         boton10.addActionListener(this);
+        boton10.setBackground(Color.magenta);
+        boton10.setForeground(Color.white);
 
         boton11 = new JButton("VOLVER");
         boton11.addActionListener(this);
@@ -101,11 +117,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         panel1.add(boton15);
         panel1.add(boton3);
 
-        panel2.add(boton4);
-        panel2.add(boton5);
         panel2.add(boton12);
-        panel2.add(boton13);
         panel2.add(boton14);
+        panel2.add(boton13);
+        panel2.add(boton5);
+        panel2.add(boton4);
         panel2.add(boton6);
 
         panel3.add(boton7);
