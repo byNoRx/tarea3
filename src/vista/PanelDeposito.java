@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PanelDeposito<T> extends JPanel{
     private int posX;
@@ -20,11 +21,17 @@ public class PanelDeposito<T> extends JPanel{
         panelesProductos = new ArrayList<>();
 
         if (!deposito.getObjetos().isEmpty()) {
-            T t = deposito.getObjetos().get(0);
-
+            T t = deposito.getObjetos().getFirst();
             if (t instanceof Moneda) {
+                // Ordenar monedas por su valor de lo más bajo a lo más alto
+                ArrayList<Moneda> monedas = new ArrayList<>();
                 for (int i = 0; i < deposito.getObjetos().size(); i++) {
-                    Moneda moneda = (Moneda) deposito.getObjetos().get(i);
+                    monedas.add((Moneda) deposito.getObjetos().get(i));
+                }
+                monedas.sort(null);
+
+                for (int i = 0; i < monedas.size(); i++) {
+                    Moneda moneda = (Moneda) monedas.get(i);
                     panelesMonedas.add(new PanelMoneda(posX + ObjetoSize.OBJ.getWidth() * i + i * ObjetoSize.OBJ.getWidth() + ObjetoSize.OBJ.getWidth(), posY + ObjetoSize.OBJ.getHeight(), moneda));
                 }
             } else if (t instanceof Producto) {
