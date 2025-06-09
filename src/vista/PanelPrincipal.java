@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
-    private PanelComprador com;
+    //private PanelComprador com;
     private PanelExpendedor exp;
 
 
@@ -10,11 +10,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     public PanelPrincipal () {
         this.setBackground(Color.white);
         //com = new PanelComprador(0,0,new Comprador());
-        exp = new PanelExpendedor(1000, 1000, new Expendedor(5));
-
-
-
-
+        exp = new PanelExpendedor(0, 0, new Expendedor(5));
     }
 
     @Override
