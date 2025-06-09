@@ -1,6 +1,8 @@
 public enum ObjetoSize {
-    EXP(100, 200),
-    COM(50, 175);
+    EXP(256, 512),
+    //COM(50, 175),
+    DEP(64, 64),
+    OBJ(4, 4);
 
     private int width;
     private int height;
