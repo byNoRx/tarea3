@@ -6,6 +6,9 @@ public class PanelExpendedor extends JPanel {
     private int posX;
     private int posY;
 
+    // Expendedor
+    private Expendedor expendedor;
+
     // Depositos de bebidas
     private PanelDeposito<Producto> depositoCoca;
     private PanelDeposito<Producto> depositoFanta;
@@ -20,10 +23,13 @@ public class PanelExpendedor extends JPanel {
     private PanelDeposito<Moneda> depositoMonedas;
 
     private PanelProducto bandejaDeEntrega;
+    private PanelDeposito<Producto> depositoDeEntrega; // Sólo visual
 
     public PanelExpendedor(int posX, int posY, Expendedor expendedor) {
         this.posX = posX;
         this.posY = posY;
+
+        this.expendedor = expendedor;
 
         this.depositoCoca = new PanelDeposito<>(posX + 1, posY + 1, expendedor.getDepositoCoca());
         this.depositoFanta = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() + 2, expendedor.getDepositoFanta());
@@ -32,10 +38,13 @@ public class PanelExpendedor extends JPanel {
         this.depositoSnickers = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() * 3 + 4, expendedor.getDepositoSnickers());
         this.depositoSuper8 = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() * 4 + 5, expendedor.getDepositoSuper8());
 
-        this.depositoMonedas = new PanelDeposito<>(posX + 1, posY + ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() * 2 - 2, expendedor.getDepositoMonedas());
-        this.depositoMonedasVuelto = new PanelDeposito<>(posX + ObjetoSize.EXP.getWidth() - ObjetoSize.DEP.getWidth() - 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight()) / 2, expendedor.getDepositoMonedasVuelto());
+        this.depositoMonedasVuelto = new PanelDeposito<>(posX + 1, posY + ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() * 2 - 2, expendedor.getDepositoMonedas());
+        this.depositoMonedas = new PanelDeposito<>(posX + ObjetoSize.EXP.getWidth() - ObjetoSize.DEP.getWidth() - 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight()) / 2, expendedor.getDepositoMonedasVuelto());
 
         this.bandejaDeEntrega = new PanelProducto(posX + 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1), expendedor.getProducto());
+
+        Deposito<Producto> dep = new Deposito<>();
+        this.depositoDeEntrega = new PanelDeposito<>(posX + 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() - 1), dep);
     }
 
     @Override
