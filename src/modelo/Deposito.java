@@ -34,4 +34,13 @@ public class Deposito<T> {
         }
         return null;
     }
+
+    /**
+     * Obtiene todos los productos del depósito.
+     *
+     * @return la lista de productos del depósito.
+     */
+    public ArrayList<T> getObjetos() {
+        return objetos;
+    }
 }
