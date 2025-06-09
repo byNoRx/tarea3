@@ -21,7 +21,6 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
     public PanelPrincipal() {
         modeloExpendedor = new Expendedor(5);
 
-
         // Personalizar panel principal
         setLayout(new BorderLayout());
         setBackground(Color.white);
@@ -54,49 +53,47 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         panel3 = new JPanel(new GridLayout(0, 1, 10, 10));
 
         // Crear los botones
-        boton1 = new JButton("Elegir producto");
+        boton1 = new JButton("ELEGIR PRODUCTO");
         boton1.addActionListener(this);
 
-        boton2 = new JButton("Elegir moneda");
+        boton2 = new JButton("ELEGIR MONEDA");
         boton2.addActionListener(this);
 
-        boton15 = new JButton("Comprar producto");
+        boton15 = new JButton("COMPRAR PRODUCTO");
         boton15.addActionListener(this);
 
-        boton3 = new JButton("Recuperar vuelto");
+        boton3 = new JButton("RECUPERAR VUELTO");
         boton3.addActionListener(this);
 
-        boton4 = new JButton("Super8");
+        boton4 = new JButton(ProductoTipo.SUPER8.toString() + " $" + ProductoTipo.SUPER8.getPrecio());
         boton4.addActionListener(this);
 
-        boton5 = new JButton("Snicker");
+        boton5 = new JButton(ProductoTipo.SNICKERS.toString() + " $" + ProductoTipo.SNICKERS.getPrecio());
         boton5.addActionListener(this);
 
-        boton12 = new JButton("Coca Cola");
+        boton12 = new JButton(ProductoTipo.COCA.toString() + " $" + ProductoTipo.COCA.getPrecio());
         boton12.addActionListener(this);
 
-        boton13 = new JButton("Sprite");
+        boton13 = new JButton(ProductoTipo.SPRITE.toString() + " $" + ProductoTipo.SPRITE.getPrecio());
         boton13.addActionListener(this);
 
-        boton14 = new JButton("Fanta");
+        boton14 = new JButton(ProductoTipo.FANTA.toString() + " $" + ProductoTipo.FANTA.getPrecio());
         boton14.addActionListener(this);
 
-        boton6 = new JButton("Volver");
+        boton6 = new JButton("VOLVER");
         boton6.addActionListener(this);
 
-        boton7 = new JButton("Moneda de 100");
+        boton7 = new JButton("$100");
         boton7.addActionListener(this);
-        boton8 = new JButton("Moneda de 500");
+        boton8 = new JButton("$500");
         boton8.addActionListener(this);
-        boton9 = new JButton("Moneda de 1000");
+        boton9 = new JButton("$1000");
         boton9.addActionListener(this);
-        boton10 = new JButton("Moneda de 1500");
+        boton10 = new JButton("$1500");
         boton10.addActionListener(this);
 
-
-        boton11 = new JButton("Volver");
+        boton11 = new JButton("VOLVER");
         boton11.addActionListener(this);
-
 
         // Agregar botones a los paneles
         panel1.add(boton1);
@@ -169,19 +166,19 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         // Monedas
         else if (e.getSource() == boton7) {
             modeloMoneda = new Moneda100();
-            JOptionPane.showMessageDialog(null, "Moneda de 100 seleccionada");
+            JOptionPane.showMessageDialog(null, "Moneda de $100 seleccionada");
         }
         else if (e.getSource() == boton8) {
             modeloMoneda = new Moneda500();
-            JOptionPane.showMessageDialog(null, "Moneda de 500 seleccionada");
+            JOptionPane.showMessageDialog(null, "Moneda de $500 seleccionada");
         }
         else if (e.getSource() == boton9) {
             modeloMoneda = new Moneda1000();
-            JOptionPane.showMessageDialog(null, "Moneda de 1000 seleccionada");
+            JOptionPane.showMessageDialog(null, "Moneda de $1000 seleccionada");
         }
         else if (e.getSource() == boton10) {
             modeloMoneda = new Moneda1500();
-            JOptionPane.showMessageDialog(null, "Moneda de 1500 seleccionada");
+            JOptionPane.showMessageDialog(null, "Moneda de $1500 seleccionada");
         }
 
         // Comprar
@@ -200,25 +197,6 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
                 JOptionPane.showMessageDialog(null, ex.getMessage());
                 printParametros();
             }
-
-
-
-            /*
-                System.out.println(modeloMoneda);
-                System.out.println(cualProducto);
-                System.out.println(modeloExpendedor);
-                throw new RuntimeException(ex);
-            } catch (PagoInsuficienteException ex) {
-                System.out.println(modeloMoneda);
-                System.out.println(cualProducto);
-                System.out.println(modeloExpendedor);
-                throw new RuntimeException(ex);
-            } catch (PagoIncorrectoException ex) {
-                System.out.println(modeloMoneda);
-                System.out.println(cualProducto);
-                System.out.println(modeloExpendedor);
-                throw new RuntimeException(ex);
-            }*/
         }
     }
 
