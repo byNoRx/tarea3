@@ -5,6 +5,12 @@ import java.awt.event.ActionListener;
 
 public class PanelPrincipal extends JPanel implements ActionListener {    // Se ve en el centro de la ventana
     // Comprador  y expendedor
+    private Comprador modeloComprador;
+    private Expendedor modeloExpendedor;
+
+    private Moneda modeloMoneda;
+    private int cualProducto;
+
     private PanelComprador com;
     private PanelExpendedor exp;
 
@@ -13,6 +19,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
     private JButton boton1, boton2, boton3, boton4, boton5, boton6,boton7,boton8,boton9,boton10,boton11,boton12,boton13,boton14;
 
     public PanelPrincipal() {
+        modeloExpendedor = new Expendedor(5);
+
 
         // Personalizar panel principal
         setLayout(new BorderLayout());
@@ -35,7 +43,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         add(right, BorderLayout.EAST);
 
         // Expendedor al panel de la derecha
-        exp = new PanelExpendedor(0, 0, new Expendedor(5));
+        exp = new PanelExpendedor(0, 0, modeloExpendedor);
         right.add(exp, BorderLayout.CENTER);
 
         // -------------MENÚ----------------
@@ -126,8 +134,41 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
             BigPanel.add(panel1);
             SwingUtilities.updateComponentTreeUI(this);
         }
+
+        // Productos
+        else if (e.getSource() == boton4) {
+            cualProducto = ProductoTipo.SUPER8.getNumero();
+        }
+        else if (e.getSource() == boton5) {
+            cualProducto = ProductoTipo.SNICKERS.getNumero();
+        }
+        else if (e.getSource() == boton12) {
+            cualProducto = ProductoTipo.COCA.getNumero();
+        }
+        else if (e.getSource() == boton13) {
+            cualProducto = ProductoTipo.SPRITE.getNumero();
+        }
+        else if (e.getSource() == boton14) {
+            cualProducto = ProductoTipo.FANTA.getNumero();
+        }
+
+        // Monedas
+        else if (e.getSource() == boton7) {
+            modeloMoneda = new Moneda100();
+        }
+        else if (e.getSource() == boton8) {
+            modeloMoneda = new Moneda500();
+        }
+        else if (e.getSource() == boton9) {
+            modeloMoneda = new Moneda1000();
+        }
+        else if (e.getSource() == boton10) {
+            modeloMoneda = new Moneda1500();
+        }
+
+        // Recuperar vuelto
         else if (e.getSource() == boton3) {
-            //com;
+            
         }
     }
 
