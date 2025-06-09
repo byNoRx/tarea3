@@ -197,6 +197,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
                 JOptionPane.showMessageDialog(null, ex.getMessage());
                 printParametros();
             }
+            repaint();
         }
     }
 
