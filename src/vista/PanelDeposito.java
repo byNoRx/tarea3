@@ -23,14 +23,14 @@ public class PanelDeposito<T> extends JPanel{
             T t = deposito.getObjetos().get(0);
 
             if (t instanceof Moneda) {
-                for (T obj : deposito.getObjetos()) {
-                    Moneda moneda = (Moneda) obj;
-                    panelesMonedas.add(new PanelMoneda(posX, posY, moneda));
+                for (int i = 0; i < deposito.getObjetos().size(); i++) {
+                    Moneda moneda = (Moneda) deposito.getObjetos().get(i);
+                    panelesMonedas.add(new PanelMoneda(posX + ObjetoSize.OBJ.getWidth() * i + i * ObjetoSize.OBJ.getWidth() + ObjetoSize.OBJ.getWidth(), posY + ObjetoSize.OBJ.getHeight(), moneda));
                 }
             } else if (t instanceof Producto) {
-                for (T obj : deposito.getObjetos()) {
-                    Producto producto = (Producto) obj;
-                    panelesProductos.add(new PanelProducto(posX, posY, producto));
+                for (int i = 0; i < deposito.getObjetos().size(); i++) {
+                    Producto producto = (Producto) deposito.getObjetos().get(i);
+                    panelesProductos.add(new PanelProducto(posX + ObjetoSize.OBJ.getWidth() * i + i * ObjetoSize.OBJ.getWidth() + ObjetoSize.OBJ.getWidth(), posY + ObjetoSize.OBJ.getHeight(), producto));
                 }
             }
         }
