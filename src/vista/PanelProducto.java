@@ -16,7 +16,7 @@ public class PanelProducto extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.green);
+        g.setColor(Color.red);
         g.fillRect(posX, posY, ObjetoSize.OBJ.getWidth(), ObjetoSize.OBJ.getHeight());
     }
 }
