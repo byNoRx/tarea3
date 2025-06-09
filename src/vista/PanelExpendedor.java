@@ -33,8 +33,8 @@ public class PanelExpendedor extends JPanel {
         this.depositoSnickers = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() * 3 + 4, expendedor.getDepositoSnickers());
         this.depositoSuper8 = new PanelDeposito<>(posX + 1, posY + ObjetoSize.DEP.getHeight() * 4 + 5, expendedor.getDepositoSuper8());
 
-        this.depositoMonedasVuelto = new PanelDeposito<>(posX + 1, posY + ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() * 2 - 2, expendedor.getDepositoMonedas());
-        this.depositoMonedas = new PanelDeposito<>(posX + ObjetoSize.EXP.getWidth() - ObjetoSize.DEP.getWidth() - 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight()) / 2, expendedor.getDepositoMonedasVuelto());
+        this.depositoMonedasVuelto = new PanelDeposito<>(posX + 1, posY + ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight() * 2 - 2, expendedor.getDepositoMonedasVuelto());
+        this.depositoMonedas = new PanelDeposito<>(posX + ObjetoSize.EXP.getWidth() - ObjetoSize.DEP.getWidth() - 1, posY + (ObjetoSize.EXP.getHeight() - ObjetoSize.DEP.getHeight()) / 2, expendedor.getDepositoMonedas());
 
         // Sólo visual
         Deposito<Producto> d = new Deposito<>(); // Depósito vacío
