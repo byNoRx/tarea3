@@ -2,13 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelExpendedor extends JPanel {
+
     private int posX;
     private int posY;
     private Expendedor expendedor;
+    private JPanel panel1;
 
     /**
      * Constructor
-     * 
+     *
      * @param posX
      * @param posY
      * @param expendedor
@@ -17,13 +19,20 @@ public class PanelExpendedor extends JPanel {
         this.posX = posX;
         this.posY = posY;
         this.expendedor = expendedor;
+
+
+
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setFont(new Font("Arial", Font.BOLD, 14));
+        super.paintComponent(g);
+        g.setColor(Color.black);
+        g.fillRect(posX, posY, ObjetoSize.EXP.getWidth(), ObjetoSize.EXP.getHeight());
+
+
 
         // Dibujar la maquina expendedora
         g.setColor(Color.GRAY);
@@ -47,5 +56,17 @@ public class PanelExpendedor extends JPanel {
         // Dibujar salida de productos
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(150, 500, 100, 50);
+
+        // Dibujar monedero
+        g.setColor(Color.ORANGE);
+        g.fillRect(320, 600, 50, 50); // Representa el cuerpo del monedero
+        g.setColor(Color.YELLOW);
+        g.fillOval(335, 600, 20, 20); // Representa una moneda dentro
+
+        g.setColor(Color.black);
+        g.drawString("Monedero", 325, 580);
+
+
+
     }
 }

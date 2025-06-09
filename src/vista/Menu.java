@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class Menu extends JPanel implements ActionListener {
     private JPanel BigPanel, panel1, panel2,panel3;
-    private JButton boton1, boton2, boton3, boton4, boton5, boton6,boton7,boton8,boton9,boton10,boton11;
+    private JButton boton1, boton2, boton3, boton4, boton5, boton6,boton7,boton8,boton9,boton10,boton11,boton12,boton13,boton14;
 
     public Menu() {
 
@@ -27,11 +27,20 @@ public class Menu extends JPanel implements ActionListener {
         boton3 = new JButton("recuperar vuelto");
         boton3.addActionListener(this);
 
-        boton4 = new JButton("producto1");
+        boton4 = new JButton("Super8");
         boton4.addActionListener(this);
 
-        boton5 = new JButton("producto2");
+        boton5 = new JButton("Snicker");
         boton5.addActionListener(this);
+
+        boton12 = new JButton("Coca Cola");
+        boton12.addActionListener(this);
+
+        boton13 = new JButton("Sprite");
+        boton13.addActionListener(this);
+
+        boton14 = new JButton("Fanta");
+        boton14.addActionListener(this);
 
         boton6 = new JButton("volver");
         boton6.addActionListener(this);
@@ -53,6 +62,9 @@ public class Menu extends JPanel implements ActionListener {
 
         panel2.add(boton4);
         panel2.add(boton5);
+        panel2.add(boton12);
+        panel2.add(boton13);
+        panel2.add(boton14);
         panel2.add(boton6);
 
         panel3.add(boton7);
