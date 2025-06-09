@@ -20,6 +20,8 @@ public class Comprador {
         Producto bebida_comprada = expendedor.getProducto();
         if (bebida_comprada != null) {
             this.sonido = bebida_comprada.getSabor();
+            System.out.println("Moneda: " + moneda);
+            System.out.println("Producto: " + bebida_comprada);
         } else {
             this.sonido = null;
         }

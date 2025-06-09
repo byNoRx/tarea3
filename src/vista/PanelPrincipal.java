@@ -202,16 +202,15 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
             try {
                 modeloComprador = new Comprador(modeloMoneda, cualProducto, modeloExpendedor);
                 JOptionPane.showMessageDialog(null, "Compra realizada con éxito");
-                printParametros();
             } catch (NoHayProductoException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
-                printParametros();
+
             } catch (PagoInsuficienteException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
-                printParametros();
+
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
-                printParametros();
+
             }
             repaint();
         }
@@ -223,11 +222,5 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
                                                 // El de la super clase solo pinta el fondo (background)
         //com.paintComponent(g);                // Llama al metodo paintComponent definido en el PanelComprador
         exp.paintComponent(g);                  // Llama al metodo paintComponent definido en el PanelExpendedor
-    }
-
-    private void printParametros() {
-        System.out.println(modeloMoneda);
-        System.out.println(cualProducto);
-        System.out.println(modeloExpendedor);
     }
 }
