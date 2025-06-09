@@ -39,7 +39,8 @@ public class PanelPrincipal extends JPanel implements ActionListener, MouseListe
         com = new PanelComprador(0, 0, modeloComprador);
         exp.setPreferredSize(new Dimension(ObjetoSize.EXP.getWidth(), ObjetoSize.EXP.getHeight()));
         exp.addMouseListener(this);
-        com.setPreferredSize(new Dimension(ObjetoSize.COM.getWidth(), ObjetoSize.COM.getHeight()));
+        com.setLayout(new BorderLayout());
+        com.setPreferredSize(new Dimension(ObjetoSize.EXP.getWidth(), ObjetoSize.EXP.getHeight()));
         add(exp, BorderLayout.EAST);
         add(com, BorderLayout.CENTER);
 
@@ -133,6 +134,7 @@ public class PanelPrincipal extends JPanel implements ActionListener, MouseListe
         // Agregar panel1 al contenedor principal
         BigPanel.add(panel1);
         add(BigPanel, BorderLayout.WEST);
+        BigPanel.setPreferredSize(new Dimension(ObjetoSize.EXP.getWidth(), ObjetoSize.EXP.getHeight()));
     }
 
     @Override
