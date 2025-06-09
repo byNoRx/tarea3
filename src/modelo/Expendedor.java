@@ -3,12 +3,12 @@
  */
 public class Expendedor {
     // Bebidas
-    private final Deposito<Producto> depositoCoca;
-    private final Deposito<Producto> depositoFanta;
-    private final Deposito<Producto> depositoSprite;
+    protected Deposito<Producto> depositoCoca;
+    protected Deposito<Producto> depositoFanta;
+    protected Deposito<Producto> depositoSprite;
     // Dulces
-    private final Deposito<Producto> depositoSnickers;
-    private final Deposito<Producto> depositoSuper8;
+    protected Deposito<Producto> depositoSnickers;
+    protected Deposito<Producto> depositoSuper8;
     // Monedas para vuelto
     private final Deposito<Moneda> depositoMonedasVuelto;
     private final Deposito<Moneda> depositoMonedas;
@@ -255,5 +255,38 @@ public class Expendedor {
 
     public Producto getProducto() {
         return bandejaDeEntrega;
+    }
+
+    /**
+     * Método para rellenar desde 0 todos los productos
+     *
+     * @param numProductos número de productos que se quiere por cada producto
+     */
+    public void rellenarProductos(int numProductos) {
+        // Vaciar todo
+        while (!depositoCoca.getObjetos().isEmpty()) {
+            depositoCoca.getObjeto();
+        }
+        while (!depositoFanta.getObjetos().isEmpty()) {
+            depositoFanta.getObjeto();
+        }
+        while (!depositoSprite.getObjetos().isEmpty()) {
+            depositoSprite.getObjeto();
+        }
+        while (!depositoSnickers.getObjetos().isEmpty()) {
+            depositoSnickers.getObjeto();
+        }
+        while (!depositoSuper8.getObjetos().isEmpty()) {
+            depositoSuper8.getObjeto();
+        }
+
+        //Lenar otra vez
+        for (int i = 0; i < numProductos; i++) {
+            depositoCoca.addObjeto(new CocaCola(1000+i));
+            depositoFanta.addObjeto(new Fanta(2000+i));
+            depositoSprite.addObjeto(new Sprite(3000+i));
+            depositoSnickers.addObjeto(new Snickers(4000+i));
+            depositoSuper8.addObjeto(new Super8(5000+i));
+        }
     }
 }
