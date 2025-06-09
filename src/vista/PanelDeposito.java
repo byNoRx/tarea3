@@ -50,6 +50,8 @@ public class PanelDeposito<T> extends JPanel{
         g.setColor(Color.gray);
         g.fillRect(posX, posY, ObjetoSize.DEP.getWidth(), ObjetoSize.DEP.getHeight());
 
+        actualizarPaneles();
+
         if (!panelesMonedas.isEmpty()) {
             for (PanelMoneda p : panelesMonedas) {
                 p.paintComponent(g);
@@ -57,6 +59,33 @@ public class PanelDeposito<T> extends JPanel{
         } else if (!panelesProductos.isEmpty()) {
             for (PanelProducto p : panelesProductos) {
                 p.paintComponent(g);
+            }
+        }
+    }
+
+    public void actualizarPaneles() {
+        panelesMonedas.clear();
+        panelesProductos.clear();
+
+        if (!deposito.getObjetos().isEmpty()) {
+            T t = deposito.getObjetos().getFirst();
+
+            if (t instanceof Moneda) {
+                ArrayList<Moneda> monedas = new ArrayList<>();
+                for (T obj : deposito.getObjetos()) {
+                    monedas.add((Moneda) obj);
+                }
+                monedas.sort(null);
+
+                for (int i = 0; i < monedas.size(); i++) {
+                    Moneda moneda = monedas.get(i);
+                    panelesMonedas.add(new PanelMoneda(posX + ObjetoSize.OBJ.getWidth() * i + i * ObjetoSize.OBJ.getWidth() + ObjetoSize.OBJ.getWidth(), posY + ObjetoSize.OBJ.getHeight(), moneda));
+                }
+            } else if (t instanceof Producto) {
+                for (int i = 0; i < deposito.getObjetos().size(); i++) {
+                    Producto producto = (Producto) deposito.getObjetos().get(i);
+                    panelesProductos.add(new PanelProducto(posX + ObjetoSize.OBJ.getWidth() * i + i * ObjetoSize.OBJ.getWidth() + ObjetoSize.OBJ.getWidth(), posY + ObjetoSize.OBJ.getHeight(), producto));
+                }
             }
         }
     }
