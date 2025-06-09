@@ -225,6 +225,34 @@ public class Expendedor {
         return depositoMonedasVuelto.getObjeto();
     }
 
+    public Deposito<Producto> getDepositoCoca() {
+        return depositoCoca;
+    }
+
+    public Deposito<Producto> getDepositoFanta() {
+        return depositoFanta;
+    }
+
+    public Deposito<Producto> getDepositoSprite() {
+        return depositoSprite;
+    }
+
+    public Deposito<Producto> getDepositoSnickers() {
+        return depositoSnickers;
+    }
+
+    public Deposito<Producto> getDepositoSuper8() {
+        return depositoSuper8;
+    }
+
+    public Deposito<Moneda> getDepositoMonedasVuelto() {
+        return depositoMonedasVuelto;
+    }
+
+    public Deposito<Moneda> getDepositoMonedas() {
+        return depositoMonedas;
+    }
+
     public Producto getProducto() {
         return bandejaDeEntrega;
     }
