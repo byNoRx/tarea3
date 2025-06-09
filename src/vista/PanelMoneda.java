@@ -17,7 +17,7 @@ public class PanelMoneda extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        if (moneda != null) {
+        if (moneda == null) {
             return;
         }
 
