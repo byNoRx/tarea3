@@ -16,7 +16,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
 
     // Botones para el menú interactivo
     private JPanel BigPanel, panel1, panel2,panel3;
-    private JButton boton1, boton2, boton3, boton4, boton5, boton6,boton7,boton8,boton9,boton10,boton11,boton12,boton13,boton14;
+    private JButton boton1, boton2, boton3, boton4, boton5, boton6,boton7,boton8,boton9,boton10,boton11,boton12,boton13,boton14,boton15;
 
     public PanelPrincipal() {
         modeloExpendedor = new Expendedor(5);
@@ -54,10 +54,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         panel3 = new JPanel(new GridLayout(0, 1, 10, 10));
 
         // Crear los botones
-        boton1 = new JButton("Comprar");
+        boton1 = new JButton("Elegir producto");
         boton1.addActionListener(this);
-        boton2 = new JButton("Ingresar monedas");
+
+        boton2 = new JButton("Elegir moneda");
         boton2.addActionListener(this);
+
+        boton15 = new JButton("Comprar producto");
+        boton15.addActionListener(this);
 
         boton3 = new JButton("Recuperar vuelto");
         boton3.addActionListener(this);
@@ -80,10 +84,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         boton6 = new JButton("Volver");
         boton6.addActionListener(this);
 
-        boton7 = new JButton("Agregar moneda 100");
-        boton8 = new JButton("Agregar moneda 500");
-        boton9 = new JButton("Agregar moneda 1000");
-        boton10 = new JButton("Agregar moneda 1500");
+        boton7 = new JButton("Moneda de 100");
+        boton7.addActionListener(this);
+        boton8 = new JButton("Moneda de 500");
+        boton8.addActionListener(this);
+        boton9 = new JButton("Moneda de 1000");
+        boton9.addActionListener(this);
+        boton10 = new JButton("Moneda de 1500");
+        boton10.addActionListener(this);
 
 
         boton11 = new JButton("Volver");
@@ -93,6 +101,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         // Agregar botones a los paneles
         panel1.add(boton1);
         panel1.add(boton2);
+        panel1.add(boton15);
         panel1.add(boton3);
 
         panel2.add(boton4);
@@ -138,37 +147,78 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
         // Productos
         else if (e.getSource() == boton4) {
             cualProducto = ProductoTipo.SUPER8.getNumero();
+            JOptionPane.showMessageDialog(null, "Bebida " + ProductoTipo.SUPER8.toString().toLowerCase() + " seleccionada");
         }
         else if (e.getSource() == boton5) {
             cualProducto = ProductoTipo.SNICKERS.getNumero();
+            JOptionPane.showMessageDialog(null, "Bebida " + ProductoTipo.SNICKERS.toString().toLowerCase() + " seleccionada");
         }
         else if (e.getSource() == boton12) {
             cualProducto = ProductoTipo.COCA.getNumero();
+            JOptionPane.showMessageDialog(null, "Bebida " + ProductoTipo.COCA.toString().toLowerCase() + " seleccionada");
         }
         else if (e.getSource() == boton13) {
             cualProducto = ProductoTipo.SPRITE.getNumero();
+            JOptionPane.showMessageDialog(null, "Bebida " + ProductoTipo.SPRITE.toString().toLowerCase() + " seleccionada");
         }
         else if (e.getSource() == boton14) {
             cualProducto = ProductoTipo.FANTA.getNumero();
+            JOptionPane.showMessageDialog(null, "Bebida " + ProductoTipo.FANTA.toString().toLowerCase() + " seleccionada");
         }
 
         // Monedas
         else if (e.getSource() == boton7) {
             modeloMoneda = new Moneda100();
+            JOptionPane.showMessageDialog(null, "Moneda de 100 seleccionada");
         }
         else if (e.getSource() == boton8) {
             modeloMoneda = new Moneda500();
+            JOptionPane.showMessageDialog(null, "Moneda de 500 seleccionada");
         }
         else if (e.getSource() == boton9) {
             modeloMoneda = new Moneda1000();
+            JOptionPane.showMessageDialog(null, "Moneda de 1000 seleccionada");
         }
         else if (e.getSource() == boton10) {
             modeloMoneda = new Moneda1500();
+            JOptionPane.showMessageDialog(null, "Moneda de 1500 seleccionada");
         }
 
-        // Recuperar vuelto
-        else if (e.getSource() == boton3) {
-            
+        // Comprar
+        else if (e.getSource() == boton15) {
+            try {
+                modeloComprador = new Comprador(modeloMoneda, cualProducto, modeloExpendedor);
+                JOptionPane.showMessageDialog(null, "Compra realizada con éxito");
+                printParametros();
+            } catch (NoHayProductoException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+                printParametros();
+            } catch (PagoInsuficienteException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+                printParametros();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+                printParametros();
+            }
+
+
+
+            /*
+                System.out.println(modeloMoneda);
+                System.out.println(cualProducto);
+                System.out.println(modeloExpendedor);
+                throw new RuntimeException(ex);
+            } catch (PagoInsuficienteException ex) {
+                System.out.println(modeloMoneda);
+                System.out.println(cualProducto);
+                System.out.println(modeloExpendedor);
+                throw new RuntimeException(ex);
+            } catch (PagoIncorrectoException ex) {
+                System.out.println(modeloMoneda);
+                System.out.println(cualProducto);
+                System.out.println(modeloExpendedor);
+                throw new RuntimeException(ex);
+            }*/
         }
     }
 
@@ -178,5 +228,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {    // Se 
                                                 // El de la super clase solo pinta el fondo (background)
         //com.paintComponent(g);                // Llama al metodo paintComponent definido en el PanelComprador
         exp.paintComponent(g);                  // Llama al metodo paintComponent definido en el PanelExpendedor
+    }
+
+    private void printParametros() {
+        System.out.println(modeloMoneda);
+        System.out.println(cualProducto);
+        System.out.println(modeloExpendedor);
     }
 }
